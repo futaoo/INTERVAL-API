@@ -52,9 +52,9 @@ put:
     '200':
       description: OK
     '400':
-      description: Invalid user supplied
+      description: Invalid tree supplied
     '404':
-      description: User not found
+      description: Tree not found
   requestBody:
     content:
       application/json:
