@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Tree
+  summary: Get tree by tree id
+  description: |
+    Retrieves detailed information about a specific tree when a user clicks on a tree point on the map.
+  operationId: getTreeByTreeID
+  parameters:
+    - name: treeid
+      in: path
+      description: The tree id that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:trees'
+    - api_key: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tree.yaml
+          example:
+            name: Maple
+            height: 15
+            canopySpread: 500
+            geometry: a geojson object
+    '403':
+      description: Forbidden
+    '404':
+      description: Tree not found
+put:
+  tags:
+    - Tree
+  summary: Updated tree
+  description: This can only be done by the logged in user.
+  operationId: updateTree
+  parameters:
+    - name: treeid
+      in: path
+      description: The tree id that needs to be updated
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'write:trees'
+  responses:
+    '200':
+      description: OK
+    '400':
+      description: Invalid user supplied
+    '404':
+      description: User not found
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tree.yaml
+      application/xml:
+        schema:
+          $ref: ../components/schemas/Tree.yaml
+    description: Updated tree object
+    required: true

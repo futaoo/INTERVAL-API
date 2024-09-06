@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Map
+  summary: Default tree map
+  description: Retrieves the initial map data showing the 5 administrative areas in Dublin, along with the number of trees inventoried in each area.<br><br>Also retrieves citywide statistics for the information pane.
+  operationId: map
+  security:
+    - api_key: []
+    - basic_auth: []
+  responses:
+    '200':
+      description: OK
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Map.yaml
+        application/xml:
+          schema:
+            type: string
+        text/csv:
+          schema:
+            type: string
+    '403':
+      description: Forbidden
+

@@ -3,5 +3,5 @@ flows:
   implicit:
     authorizationUrl: 'http://example.com/api/oauth/dialog'
     scopes:
-      'read:users': read users info
-      'write:users': modify or remove users
+      'read:trees': read trees info
+      'write:trees': modify or remove trees

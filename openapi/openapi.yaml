@@ -3,73 +3,49 @@ info:
   version: 1.0.0
   title: INTERVAL API
   # termsOfService: 'https://example.com/terms/'
-  contact:
-    email: jiantao.wu@ucdconnect.ie
-    # url: 'http://example.com/contact'
+  contact: 
+    name: 'Author'
+    email: author@intervalproject.eu
+    url: 'https://intervalproject.eu/'
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://github.com/futaoo/INTERVAL-API/blob/main/resources/logo.png?raw=true'
   description: >
-    This is an **example** API to demonstrate features of OpenAPI specification
+    A RESTful API for INTERVAL Tree Inventory.
 
     # Introduction
 
-    This API definition is intended to to be a good starting point for
-    describing your API in 
+    [INTERVAL](https://intervalproject.eu/) is an **INTEgrated stReet tree VALuation** based solution for minimizing the uneven street tree distribution in Cities. INTERVAL aims to develop an ecosystem service-based integrated decision support system to increase the street tree density in Dublin city and to promote climate neutrality and minimise environmental injustice that originates due to the inequality of street tree distribution across the geographical spaces in Dublin city.
 
-    [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
+    # Welcome to the INTERVAL API
 
-    It also demonstrates features of
-    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
-    and 
+    INTERVAL was founded on principles of openness, sharing, and community. It is to strengthen these principles and ensure the success of our entire community that we put together updated terms of service, data license, and data attribution requirements when using INTERVAL data and this API.
 
-    [Redoc](https://github.com/Redocly/Redoc) documentation engine. So beyond
-    the standard OpenAPI syntax we use a few 
+    # Basic Principles
 
-    [vendor
-    extensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-
-    # OpenAPI Specification
-
-    The goal of The OpenAPI Specification is to define a standard,
-    language-agnostic interface to REST APIs which
-
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
-
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
-
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
-
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
-externalDocs:
-  description: Find out how to create a GitHub repo for your OpenAPI definition.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+    Providing a way to programmatically interact with INTERVAL data, the INTERVAL Tree Inventory API is based on REST principles employing the following HTTP methods:<br><br><span style="color:#FF69B4">GET</span> : Returns information.<br><br><span style="color:#FF69B4">POST</span> : Creates entries.<br><br><span style="color:#FF69B4">PUT</span> : Updates entries.<br><br><span style="color:#FF69B4">DELETE</span> : Deletes entries. 
 tags:
-  - name: Echo
-    description: Example echo operations
-  - name: User
-    description: Operations about user
+  - name: Map
+    description: Show the default map and initialize the trees' information
+  - name: Tree
+    description: Operations about tree
 servers:
-  - url: 'http://example.com/api/v1'
-  - url: 'https://example.com/api/v1'
+  - url: 'http://interval.com/api/v1'
+  - url: 'https://interval.com/api/v1'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users@{username}.yaml'
-  /echo:
-    $ref: paths/echo.yaml
+  '/trees/{treeid}':
+    $ref: 'paths/trees@{treeid}.yaml'
+  /map:
+    $ref: paths/map.yaml
 components:
   securitySchemes:
     main_auth:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
+          authorizationUrl: 'http://interval.com/api/oauth/dialog'
           scopes:
             'read:users': read users info
             'write:users': modify or remove users

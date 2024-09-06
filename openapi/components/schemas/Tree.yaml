@@ -1,0 +1,84 @@
+---
+  required: 
+    - "tree"
+  properties: 
+    tree: 
+      required: 
+        - "id"
+        - "speciesCommonName"
+        - "speciesScientificName"
+        - "closestAddress"
+        - "trunkDiameter"
+        - "height"
+        - "canopySpread"
+        - "condition"
+        - "ecologicalBenefits"
+        - "inspections"
+        - "googleStreetViewImageUrl"
+      properties: 
+        id: 
+          type: "string"
+          example: "tree1"
+        speciesCommonName: 
+          type: "string"
+          example: "Sycamore"
+        speciesScientificName: 
+          type: "string"
+          example: "Acer pseudoplatanus"
+        closestAddress: 
+          type: "string"
+          example: "123 Dublin Street"
+        trunkDiameter: 
+          type: "number"
+          example: 30
+        height: 
+          type: "number"
+          example: 15
+        canopySpread: 
+          type: "number"
+          example: 500
+        condition: 
+          type: "string"
+          example: "Good"
+        ecologicalBenefits: 
+          required: 
+            - "carbonSequestration"
+            - "energyConserved"
+            - "airPollutantsRemoved"
+            - "stormwaterRetained"
+            - "totalAnnualBenefits"
+          properties: 
+            carbonSequestration: 
+              type: "number"
+              example: 20
+            energyConserved: 
+              type: "number"
+              example: 10
+            airPollutantsRemoved: 
+              type: "number"
+              example: 5
+            stormwaterRetained: 
+              type: "number"
+              example: 8
+            totalAnnualBenefits: 
+              type: "number"
+              example: 43
+          type: "object"
+        inspections: 
+          type: "array"
+          items: 
+            type: "object"
+            properties: 
+              date: 
+                type: "string"
+                example: "2023-01-01"
+              activity: 
+                type: "string"
+                example: "Pruning"
+              issue: 
+                type: "string"
+                example: "None"
+        googleStreetViewImageUrl: 
+          type: "string"
+          example: "https://maps.googleapis.com/.../tree1.jpg"
+      type: "object"

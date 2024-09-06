@@ -1,0 +1,82 @@
+---
+  required: 
+    - "mapView"
+    - "infoPanel"
+  properties: 
+    mapView: 
+      required: 
+        - "areas"
+      properties: 
+        areas: 
+          type: "array"
+          items: 
+            type: "object"
+            properties: 
+              id: 
+                type: "string"
+                example: "areaCode1"
+              name: 
+                type: "string"
+                example: "South East Dublin"
+              treeCount: 
+                type: "number"
+                example: 15000
+              geometry: 
+                required: []
+                properties: {}
+                type: "object"
+      type: "object"
+    infoPanel: 
+      required: 
+        - "description"
+        - "citywideStatistics"
+      properties: 
+        description: 
+          type: "string"
+          example: "default tree statistics within 5 administrative areas of Dublin"
+        citywideStatistics: 
+          required: 
+            - "totalMappedTrees"
+            - "volunteerMappedTrees"
+            - "speciesCount"
+            - "mostCommonSpecies"
+            - "ecologicalBenefits"
+          properties: 
+            totalMappedTrees: 
+              type: "number"
+              example: 50000
+            volunteerMappedTrees: 
+              type: "number"
+              example: 10000
+            speciesCount: 
+              type: "number"
+              example: 150
+            mostCommonSpecies: 
+              type: "string"
+              example: "Maple"
+            ecologicalBenefits: 
+              required: 
+                - "carbonSequestration"
+                - "energyConserved"
+                - "airPollutantsRemoved"
+                - "stormwaterRetained"
+                - "totalAnnualBenefits"
+              properties: 
+                carbonSequestration: 
+                  type: "number"
+                  example: 1000
+                energyConserved: 
+                  type: "number"
+                  example: 500
+                airPollutantsRemoved: 
+                  type: "number"
+                  example: 200
+                stormwaterRetained: 
+                  type: "number"
+                  example: 300
+                totalAnnualBenefits: 
+                  type: "number"
+                  example: 2000
+              type: "object"
+          type: "object"
+      type: "object"
