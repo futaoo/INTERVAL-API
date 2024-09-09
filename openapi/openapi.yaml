@@ -27,18 +27,27 @@ info:
 
     Providing a way to programmatically interact with INTERVAL data, the INTERVAL Tree Inventory API is based on REST principles employing the following HTTP methods:<br><br><span style="color:#FF69B4">GET</span> : Returns information.<br><br><span style="color:#FF69B4">POST</span> : Creates entries.<br><br><span style="color:#FF69B4">PUT</span> : Updates entries.<br><br><span style="color:#FF69B4">DELETE</span> : Deletes entries. 
 tags:
-  - name: Map
-    description: Show the default map and initialize the trees' information
-  - name: Tree
-    description: Operations about tree
+  - name: Tree Statistics
+    description: Tree statistics responses to the map operations
+  - name: Tree Individual
+    description: Information of an individual tree
 servers:
   - url: 'http://interval.com/api/v1'
   - url: 'https://interval.com/api/v1'
 paths:
-  '/trees/{treeid}':
-    $ref: 'paths/trees@{treeid}.yaml'
-  /map:
-    $ref: paths/map.yaml
+  /map/trees/{treeid}:
+    $ref: paths/map@trees@{treeid}.yaml
+  /map/trees:
+    $ref: paths/map@trees.yaml
+  /map/trees/filter:
+    $ref: paths/map@trees@filter.yaml
+  /map/electoral/{electoralID}:
+    $ref: paths/map@electoral@{electoralID}.yaml
+  /map/trees/{treeid}/record:
+    $ref: paths/map@trees@{treeid}@record.yaml
+  /map/species/{speciesID}:
+    $ref: paths/map@species@{speciesID}.yaml
+
 components:
   securitySchemes:
     main_auth:
@@ -47,8 +56,8 @@ components:
         implicit:
           authorizationUrl: 'http://interval.com/api/oauth/dialog'
           scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
+            'read:trees': read trees info
+            'write:trees': modify or remove trees
     api_key:
       type: apiKey
       in: header

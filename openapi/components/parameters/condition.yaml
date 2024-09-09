@@ -1,0 +1,8 @@
+name: condition
+in: query
+schema:
+  type: string
+  enum: ["Good", "Excellent", "Fair", "Poor"]
+required: false
+style: deepObject
+explode: true

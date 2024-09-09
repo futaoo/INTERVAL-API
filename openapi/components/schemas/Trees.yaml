@@ -1,0 +1,82 @@
+---
+  required: 
+    - "trees"
+  properties: 
+    trees: 
+      type: "array"
+      items: 
+        $ref: ./Tree.yaml
+        # type: "object"
+        # properties: 
+        #   treeID: 
+        #     type: "string"
+        #     example: "123"
+        #   species: 
+        #     type: "string"
+        #     example: "Quercus robur"
+        #   height: 
+        #     type: "number"
+        #     example: 15
+        #   trunkDiameter: 
+        #     type: "number"
+        #     example: 45
+        #   condition: 
+        #     type: "string"
+        #     example: "Good"
+        #   native: 
+        #     type: "boolean"
+        #     example: true
+        #   public: 
+        #     type: "boolean"
+        #     example: true
+        #   location: 
+        #     type: "string"
+        #     format: wkt
+        #     example: "POINT(-6.260296 53.349805)"
+        #   closestAddress: 
+        #     type: "string"
+        #     example: "123 Dublin Street, Dublin, Ireland"
+        #   googleStreetViewImageUrl: 
+        #     type: "string"
+        #     example: "https://maps.googleapis.com/..."
+        #   speciesImageUrl: 
+        #     type: "string"
+        #     example: "https://interval.eu/imgs/.../species1.jpg"
+        #   ecologicalBenefits: 
+        #     required: 
+        #       - "annualCarbonSequestration"
+        #       - "annualEnergyConserved"
+        #       - "annualAirPollutantsRemoved"
+        #       - "annualStormwaterRetained"
+        #       - "totalAnnualMonetrayValue"
+        #     properties: 
+        #       annualCarbonSequestration: 
+        #         type: "number"
+        #         example: 25.4
+        #       annualEnergyConserved: 
+        #         type: "number"
+        #         example: 15.2
+        #       annualAirPollutantsRemoved: 
+        #         type: "number"
+        #         example: 1.5
+        #       annualStormwaterRetained: 
+        #         type: "number"
+        #         example: 30
+        #       totalAnnualMonetrayValue: 
+        #         type: "number"
+        #         example: 75.1
+        #     type: "object"
+        #   inspections: 
+        #     type: "array"
+        #     items: 
+        #       type: "object"
+        #       properties: 
+        #         date: 
+        #           type: "string"
+        #           example: "2023-01-01"
+        #         activity: 
+        #           type: "string"
+        #           example: "Pruning"
+        #         issue: 
+        #           type: "string"
+        #           example: "None"

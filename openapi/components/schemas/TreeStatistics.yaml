@@ -1,0 +1,66 @@
+---
+  required: 
+    - "statistics"
+  properties: 
+    treeStatistics: 
+      required: 
+        - "treeCount"
+        - "issuesReported"
+        - "speciesCount"
+        - "speciesComposition"
+        - "ecologicalBenefits"
+        - "totalMonetaryValue"
+      properties: 
+        treeCount: 
+          type: "number"
+          example: 1200
+        issuesReported: 
+          type: "number"
+          example: 50
+        speciesCount: 
+          type: "number"
+          example: 40
+        speciesComposition: 
+          required: 
+            - "Sycamore"
+            - "Oak"
+            - "Maple"
+          properties: 
+            Sycamore: 
+              type: "number"
+              example: 600
+            Oak: 
+              type: "number"
+              example: 400
+            Maple: 
+              type: "number"
+              example: 200
+          type: "object"
+        ecologicalBenefits: 
+          required: 
+            - "carbonSequestration"
+            - "energyConserved"
+            - "airPollutantsRemoved"
+            - "stormwaterRetained"
+            - "totalAnnualBenefits"
+          properties: 
+            carbonSequestration: 
+              type: "number"
+              example: 1000
+            energyConserved: 
+              type: "number"
+              example: 500
+            airPollutantsRemoved: 
+              type: "number"
+              example: 200
+            stormwaterRetained: 
+              type: "number"
+              example: 300
+            totalAnnualBenefits: 
+              type: "number"
+              example: 2000
+          type: "object"
+        totalMonetaryValue: 
+          type: "number"
+          example: 50000
+      type: "object"

@@ -1,10 +1,10 @@
 get:
   tags:
-    - Tree
+    - Tree Individual
   summary: Get tree by tree id
   description: |
     Retrieves detailed information about a specific tree when a user clicks on a tree point on the map.
-  operationId: getTreeByTreeID
+  operationId: getTreeByID
   parameters:
     - name: treeid
       in: path
@@ -27,16 +27,16 @@ get:
             name: Maple
             height: 15
             canopySpread: 500
-            geometry: a geojson object
+            geometry: "POINT(-6.260296 53.349805)"
     '403':
       description: Forbidden
     '404':
       description: Tree not found
 put:
   tags:
-    - Tree
-  summary: Updated tree
-  description: This can only be done by the logged in user.
+    - Tree Individual
+  summary: Update tree
+  description: This can only be done by the admin user.
   operationId: updateTree
   parameters:
     - name: treeid
@@ -65,3 +65,28 @@ put:
           $ref: ../components/schemas/Tree.yaml
     description: Updated tree object
     required: true
+delete:
+  tags:
+    - Tree Individual
+  summary: Delete a tree by id
+  description: |
+    Delete a tree by id. This can only be done by the admin user.
+  operationId: deleteTreeByID
+  parameters:
+    - name: treeid
+      in: path
+      description: The tree id that needs to be updated
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:trees'
+    - api_key: []
+  responses:
+    '200':
+      description: Deleted
+    '404':
+      description: id not found
+    '401':
+      description: Unauthorized

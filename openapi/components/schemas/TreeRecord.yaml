@@ -1,0 +1,21 @@
+type: object
+required:
+  - treeRecord
+properties:
+  treeRecord:
+    type: array
+    items:
+      type: object
+      properties: 
+        activity: 
+          type: "string"
+          example: "Pruning"
+        issue: 
+          type: "string"
+          example: "Broken branch"
+        date: 
+          type: "string"
+          example: "2024-09-01"
+        notes: 
+          type: "string"
+          example: "Pruned the tree to remove the broken branch."

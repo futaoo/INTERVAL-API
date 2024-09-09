@@ -1,0 +1,41 @@
+post:
+  tags:
+    - Tree Statistics
+  summary: Tree Map Filters
+  description: |
+    Tree fitlers including a spatial filter in **WKT (Well-Known Text)** format.
+  operationId: toolbar
+  security:
+    - api_key: []
+    - main_auth: 
+      - 'read:trees'
+  responses:
+    '200':
+      description: 'Success'
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/trees.yaml
+        application/xml:
+          schema:
+            type: string
+        text/csv:
+          schema:
+            type: string
+    '403':
+      description: Forbidden
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/SpatialFilter.yaml
+      application/xml:
+        schema:
+          type: string
+    required: true

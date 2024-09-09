@@ -1,15 +1,16 @@
 get:
   tags:
-    - Map
-  summary: Default tree map
-  description: Retrieves the initial map data showing the 5 administrative areas in Dublin, along with the number of trees inventoried in each area.<br><br>Also retrieves citywide statistics for the information pane.
-  operationId: map
+    - Tree Statistics
+  summary: Zoom In an Electoral Division
+  description: |
+    Retrieves tree statistics within the electoral divison for the information panel. 
+  operationId: electoral
   security:
     - api_key: []
     - basic_auth: []
   responses:
     '200':
-      description: OK
+      description: Success
       headers:
         X-Rate-Limit:
           description: calls per hour allowed by the user
@@ -19,7 +20,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Map.yaml
+            $ref: ../components/schemas/trees.yaml
         application/xml:
           schema:
             type: string
@@ -28,4 +29,3 @@ get:
             type: string
     '403':
       description: Forbidden
-

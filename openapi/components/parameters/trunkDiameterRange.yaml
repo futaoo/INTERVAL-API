@@ -1,0 +1,14 @@
+name: diameterRange
+in: query
+schema:
+  type: object
+  properties:
+    gt:
+      type: number
+      format: float
+    lt:
+      type: number
+      format: float
+required: false
+style: deepObject
+explode: true

@@ -1,0 +1,48 @@
+type: object
+properties: 
+  heightRange: 
+    required: 
+      - "gt"
+      - "lt"
+    properties: 
+      gt: 
+        type: "number"
+        description: greater than
+        format: float
+      lt: 
+        type: "number"
+        description: less than
+        format: float
+    type: "object"
+  trunkDiameterRange: 
+    required: 
+      - "gt"
+      - "lt"
+    properties: 
+      gt: 
+        type: "number"
+        description: greater than
+        format: float
+      lt: 
+        type: "number"
+        description: less than
+        format: float
+    type: "object"
+  conditions: 
+    type: "array"
+    items: 
+      type: "string"
+      enum: ["Good", "Excellent", "Fair", "Poor"]
+  native: 
+    type: "boolean"
+  species: 
+    type: "array"
+    items: 
+      type: "string"
+      enum: ["Maple", "Oak", "Sycamore", "..."]
+  public: 
+    type: "boolean"
+  spatialExtent: 
+    type: "string"
+    format: wkt
+    example: "POLYGON((-6.260296 53.349805,-6.260296 53.348734,-6.267929 53.348734,-6.267929 53.349805,-6.260296 53.349805))"

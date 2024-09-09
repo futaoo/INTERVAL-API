@@ -1,84 +1,127 @@
----
-  required: 
-    - "tree"
-  properties: 
-    tree: 
-      required: 
-        - "id"
-        - "speciesCommonName"
-        - "speciesScientificName"
-        - "closestAddress"
-        - "trunkDiameter"
-        - "height"
-        - "canopySpread"
-        - "condition"
-        - "ecologicalBenefits"
-        - "inspections"
-        - "googleStreetViewImageUrl"
-      properties: 
-        id: 
-          type: "string"
-          example: "tree1"
-        speciesCommonName: 
-          type: "string"
-          example: "Sycamore"
-        speciesScientificName: 
-          type: "string"
-          example: "Acer pseudoplatanus"
-        closestAddress: 
-          type: "string"
-          example: "123 Dublin Street"
-        trunkDiameter: 
-          type: "number"
-          example: 30
-        height: 
-          type: "number"
-          example: 15
-        canopySpread: 
-          type: "number"
-          example: 500
-        condition: 
-          type: "string"
-          example: "Good"
-        ecologicalBenefits: 
-          required: 
-            - "carbonSequestration"
-            - "energyConserved"
-            - "airPollutantsRemoved"
-            - "stormwaterRetained"
-            - "totalAnnualBenefits"
-          properties: 
-            carbonSequestration: 
-              type: "number"
-              example: 20
-            energyConserved: 
-              type: "number"
-              example: 10
-            airPollutantsRemoved: 
-              type: "number"
-              example: 5
-            stormwaterRetained: 
-              type: "number"
-              example: 8
-            totalAnnualBenefits: 
-              type: "number"
-              example: 43
-          type: "object"
-        inspections: 
-          type: "array"
-          items: 
-            type: "object"
-            properties: 
-              date: 
-                type: "string"
-                example: "2023-01-01"
-              activity: 
-                type: "string"
-                example: "Pruning"
-              issue: 
-                type: "string"
-                example: "None"
-        googleStreetViewImageUrl: 
-          type: "string"
-          example: "https://maps.googleapis.com/.../tree1.jpg"
+
+required: 
+  - "id"
+  - "species"
+  - "closestAddress"
+  - "trunkDiameter"
+  - "height"
+  - "canopySpread"
+  - "condition"
+  - "ecologicalBenefits"
+  - "inspections"
+  - "googleStreetViewImageUrl"
+properties: 
+  id: 
+    type: "string"
+    example: "tree1"
+  species: 
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "species1"
+      speciesCommonName: 
+        type: "string"
+        example: "Sycamore"
+      speciesScientificName: 
+        type: "string"
+        example: "Acer pseudoplatanus"
+      speciesImageUrl: 
+        type: "string"
+        example: "https://interval.eu/imgs/.../species1.jpg"
+  closestAddress: 
+    type: "string"
+    example: "123 Dublin Street"
+  trunkDiameter: 
+    type: "number"
+    example: 30
+  height: 
+    type: "number"
+    example: 15
+  canopySpread: 
+    type: "number"
+    example: 500
+  condition: 
+    type: "string"
+    example: "Good"
+  location: 
+    type: "string"
+    format: wkt
+    example: "POINT(-6.260296 53.349805)"
+  googleStreetViewImageUrl: 
+    type: "string"
+    example: "https://maps.googleapis.com/..."
+  ecologicalBenefits: 
+    required: 
+      - "carbonSequestration"
+      - "energyConserved"
+      - "airPollutantsRemoved"
+      - "stormwaterRetained"
+    properties: 
+      carbonSequestration: 
+        type: object
+        properties:
+          unit:
+            type: string
+            example: kg/year
+          value: 
+            type: number
+            example: 50
+          monetary:
+            type: number
+            example: 60
+      energyConserved: 
+        type: object
+        properties:
+          unit:
+            type: string
+            example: kWh/year
+          value: 
+            type: number
+            example: 10
+          monetary:
+            type: number
+            example: 15
+      airPollutantsRemoved: 
+        type: object
+        properties:
+          unit:
+            type: string
+            example: pounds/year
+          value: 
+            type: number
+            example: 20
+          monetary:
+            type: number
+            example: 35
+      stormwaterRetained: 
+        type: object
+        properties:
+          unit:
+            type: string
+            example: gallons/year
+          value: 
+            type: number
+            example: 30
+          monetary:
+            type: number
+            example: 40
+    type: "object"
+  inspections: 
+    type: "array"
+    items: 
       type: "object"
+      properties:
+        id:
+          type: "string"
+          example: "record1" 
+        date: 
+          type: "string"
+          example: "2023-01-01"
+        activity: 
+          type: "string"
+          example: "Pruning"
+        issue: 
+          type: "string"
+          example: "None"
+type: "object"

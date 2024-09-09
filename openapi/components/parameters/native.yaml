@@ -1,0 +1,7 @@
+name: native
+in: query
+schema:
+  type: boolean
+required: false
+style: deepObject
+explode: true

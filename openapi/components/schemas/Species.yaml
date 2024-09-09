@@ -1,0 +1,19 @@
+type: object
+properties:
+  id:
+    type: "string"
+    example: "species1"
+  speciesCommonName: 
+    type: "string"
+    example: "Sycamore"
+  speciesScientificName: 
+    type: "string"
+    example: "Acer pseudoplatanus"
+  speciesImageUrl: 
+    type: "string"
+    example: "https://interval.eu/imgs/.../species1.jpg"
+  trees:
+    type: array
+    items:
+      $ref: ./Tree.yaml
+  

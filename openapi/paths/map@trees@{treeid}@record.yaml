@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Tree Individual
+  summary: Report tree activities/issues
+  description: |
+    Logged-in user is able to report tree care activities or issues when a tree is selected on the map
+  operationId: treeRecord
+  parameters:
+    - name: treeid
+      in: path
+      description: The tree id that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - api_key: []
+    - main_auth: 
+      - 'read:trees'
+  responses:
+    '200':
+      description: 'Success'
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              massage:
+                type: string
+                example: Record submitted successfully
+              recordID:
+                type: string
+                example: record123
+        application/xml:
+          schema:
+            type: string
+        text/csv:
+          schema:
+            type: string
+    '403':
+      description: Forbidden
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/TreeRecord.yaml
+      application/xml:
+        schema:
+          type: string
+    required: true

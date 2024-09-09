@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Tree Statistics
+  summary: Get Species Information
+  description: |
+    Retrieves detailed information about a specific tree species when filters applied to only one species
+  operationId: getSpeciesByID
+  parameters:
+    - name: speciesID
+      in: path
+      description: The species id that needs to be fetched
+      required: true
+      schema:
+        type: string
+  security:
+    - main_auth:
+        - 'read:trees'
+    - api_key: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Species.yaml
+    '403':
+      description: Forbidden
+    '404':
+      description: Tree not found

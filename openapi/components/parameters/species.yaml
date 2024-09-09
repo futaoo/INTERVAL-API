@@ -1,0 +1,10 @@
+name: species
+in: query
+schema:
+  type: array
+  items:
+    type: string
+    enum: ["Map", "Oak", "Sycamore", "..."]
+required: false
+style: deepObject
+explode: true

@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Tree Statistics
+  summary: Tree Map
+  description: |
+    Initialize the tree map by showing the 5 administrative areas in Dublin and return all trees.
+  operationId: map
+  security:
+    - api_key: []
+    - basic_auth: []
+  responses:
+    '200':
+      description: Success
+      headers:
+        X-Rate-Limit:
+          description: calls per hour allowed by the user
+          schema:
+            type: integer
+            format: int32
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/trees.yaml
+        application/xml:
+          schema:
+            type: string
+        text/csv:
+          schema:
+            type: string
+    '403':
+      description: Forbidden
